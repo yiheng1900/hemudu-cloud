@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宁波河姆渡文化旅游集团有限公司</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & ROOT
+============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Noto Sans SC',sans-serif;
+  background:#F7F4EE;
+  color:#1A1208;
+  overflow-x:hidden;
+}
+
+:root{
+  --cream:#F7F4EE;
+  --cream2:#EEE9DF;
+  --cream3:#E4DDD0;
+  --white:#FFFFFF;
+  --ink:#1A1208;
+  --ink2:#2E2318;
+  --ink3:#4A3828;
+  --muted:#7A6B5A;
+  --light:#BFB4A4;
+  --jade:#1F5C42;
+  --jade2:#2D7A58;
+  --jade3:#4A9870;
+  --jade-pale:#C8E0D4;
+  --jade-bg:#EBF5F0;
+  --gold:#9A6B20;
+  --gold2:#C18A30;
+  --gold3:#E2B050;
+  --gold-pale:#F0DFB8;
+  --gold-bg:#FAF4E6;
+  --terra:#7A3A1E;
+  --terra2:#A05030;
+  --border:#DDD5C8;
+  --border2:#CBC0B0;
+  --shadow:rgba(26,18,8,0.08);
+  --shadow2:rgba(26,18,8,0.15);
+}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--cream2)}
+::-webkit-scrollbar-thumb{background:var(--jade);border-radius:2px}
+
+/* ============================================================
+   CUSTOM CURSOR
+============================================================ */
+.cursor{
+  position:fixed;width:10px;height:10px;border-radius:50%;
+  background:var(--jade);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform 0.1s,width 0.3s,height 0.3s,background 0.3s;
+  mix-blend-mode:multiply;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;border-radius:50%;
+  border:1.5px solid var(--jade2);pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:transform 0.12s ease-out,width 0.3s,height 0.3s,border-color 0.3s;
+  opacity:0.6;
+}
+body:has(a:hover) .cursor{width:20px;height:20px;background:var(--gold2)}
+body:has(a:hover) .cursor-ring{width:56px;height:56px;border-color:var(--gold)}
+
+/* ============================================================
+   MARQUEE TICKER
+============================================================ */
+.ticker{
+  background:var(--jade);
+  padding:10px 0;overflow:hidden;
+  position:relative;z-index:100;
+}
+.ticker-track{
+  display:flex;gap:0;
+  animation:tickerRoll 30s linear infinite;
+  width:max-content;
+}
+.ticker-item{
+  display:flex;align-items:center;gap:20px;padding:0 40px;
+  font-family:'Cormorant Garamond',serif;font-size:13px;
+  font-style:italic;letter-spacing:0.22em;color:rgba(255,255,255,0.85);
+  white-space:nowrap;
+}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.4);flex-shrink:0}
+@keyframes tickerRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   NAV
+============================================================ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  height:70px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;
+  transition:background 0.4s,box-shadow 0.4s,backdrop-filter 0.4s;
+}
+nav.scrolled{
+  background:rgba(247,244,238,0.94);
+  backdrop-filter:blur(20px);
+  box-shadow:0 1px 0 var(--border);
+}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.nav-emblem{
+  width:38px;height:38px;border:2px solid var(--jade);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.nav-emblem::before{
+  content:'';position:absolute;inset:0;
+  background:var(--jade);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s ease;
+}
+nav.scrolled .nav-emblem::before{transform:scaleX(1)}
+.nav-emblem svg{position:relative;z-index:1;transition:fill 0.3s}
+.nav-emblem-diamond{width:14px;height:14px;background:var(--jade);transform:rotate(45deg);transition:background 0.3s}
+nav.scrolled .nav-emblem-diamond{background:white}
+.nav-name{line-height:1.3}
+.nav-name-zh{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:0.05em}
+.nav-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:var(--muted);letter-spacing:0.2em}
+.nav-links{display:flex;gap:4px}
+.nav-links a{
+  padding:7px 16px;font-family:'Noto Serif SC',serif;font-size:13px;
+  color:var(--ink3);text-decoration:none;letter-spacing:0.06em;
+  border-radius:3px;transition:all 0.25s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:4px;left:16px;right:16px;
+  height:1px;background:var(--jade);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
+}
+.nav-links a:hover{color:var(--jade)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-contact{
+  padding:9px 24px !important;
+  background:var(--jade) !important;color:white !important;
+  border-radius:2px !important;letter-spacing:0.1em !important;
+}
+.nav-contact::after{display:none !important}
+.nav-contact:hover{background:var(--jade2) !important;transform:translateY(-1px);box-shadow:0 6px 20px rgba(31,92,66,0.25) !important}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:var(--cream);
+  padding-top:70px;
+}
+
+/* BG layers */
+.hero-bg-1{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 80% at 85% 50%,rgba(31,92,66,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 50% at 10% 80%,rgba(154,107,32,0.06) 0%,transparent 60%);
+}
+.hero-bg-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(26,18,8,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(26,18,8,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,black 20%,transparent 80%);
+}
+
+/* Animated orb */
+.hero-orb{
+  position:absolute;right:-5%;top:50%;transform:translateY(-50%);
+  width:55vw;height:55vw;max-width:700px;max-height:700px;
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    rgba(31,92,66,0.12) 0%,
+    rgba(154,107,32,0.1) 25%,
+    rgba(31,92,66,0.06) 50%,
+    rgba(226,176,80,0.08) 75%,
+    rgba(31,92,66,0.12) 100%
+  );
+  animation:orbSpin 20s linear infinite;
+}
+.hero-orb::before{
+  content:'';position:absolute;inset:12%;border-radius:50%;
+  background:conic-gradient(
+    from 120deg,
+    rgba(31,92,66,0.08) 0%,
+    transparent 40%,
+    rgba(154,107,32,0.08) 60%,
+    transparent 100%
+  );
+  animation:orbSpin 15s linear infinite reverse;
+}
+.hero-orb::after{
+  content:'';position:absolute;inset:25%;border-radius:50%;
+  border:1px solid rgba(31,92,66,0.15);
+  animation:orbSpin 8s linear infinite;
+}
+@keyframes orbSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Floating rings */
+.hero-ring{
+  position:absolute;border-radius:50%;border:1px solid;
+  right:0;top:50%;
+  animation:ringPulse 6s ease-in-out infinite;
+}
+.hero-ring:nth-child(1){width:42vw;height:42vw;max-width:540px;max-height:540px;margin-top:-21vw;right:2%;border-color:rgba(31,92,66,0.12);animation-delay:0s}
+.hero-ring:nth-child(2){width:56vw;height:56vw;max-width:720px;max-height:720px;margin-top:-28vw;right:-3%;border-color:rgba(154,107,32,0.08);animation-delay:2s;border-style:dashed}
+.hero-ring:nth-child(3){width:28vw;height:28vw;max-width:360px;max-height:360px;margin-top:-14vw;right:7%;border-color:rgba(31,92,66,0.08);animation-delay:4s}
+@keyframes ringPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+
+/* Floating number cards */
+.hero-float{
+  position:absolute;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+  padding:16px 22px;
+  box-shadow:0 8px 32px var(--shadow);
+}
+.hero-float-1{right:8%;top:22%;animation:float1 7s ease-in-out infinite}
+.hero-float-2{right:22%;bottom:25%;animation:float2 9s ease-in-out infinite 1.5s}
+.hero-float-3{right:4%;bottom:30%;animation:float1 8s ease-in-out infinite 3s}
+@keyframes float1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(0.5deg)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(14px) rotate(-0.5deg)}}
+.float-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--jade);line-height:1}
+.float-num sup{font-size:15px}
+.float-lbl{font-size:11px;color:var(--muted);letter-spacing:0.14em;margin-top:4px;font-family:'Noto Serif SC',serif}
+.float-bar{width:100%;height:2px;background:linear-gradient(90deg,var(--jade),var(--jade3));margin-top:10px;border-radius:1px;position:relative;overflow:hidden}
+.float-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,0.6);animation:barShimmer 2.5s ease-in-out infinite}
+@keyframes barShimmer{to{left:200%}}
+
+.hero-content{
+  position:relative;z-index:10;
+  max-width:1280px;margin:0 auto;padding:60px 60px;
+  width:100%;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:13px;letter-spacing:0.3em;color:var(--jade);
+  margin-bottom:32px;
+  opacity:0;animation:fadeUp 0.8s 0.3s ease both;
+}
+.kicker-line{width:30px;height:1px;background:var(--jade)}
+.kicker-dot{width:5px;height:5px;border-radius:50%;background:var(--jade);animation:dotBlink 2s ease-in-out infinite}
+@keyframes dotBlink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero-h1{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(52px,7.5vw,100px);
+  font-weight:900;
+  line-height:1.08;
+  letter-spacing:0.02em;
+  color:var(--ink);
+  margin-bottom:10px;
+  max-width:700px;
+}
+.hero-h1 .char-group{
+  display:block;overflow:hidden;
+}
+.hero-h1 .char-inner{
+  display:block;
+  animation:charReveal 1s cubic-bezier(0.16,1,0.3,1) both;
+}
+.hero-h1 .char-group:nth-child(1) .char-inner{animation-delay:0.4s}
+.hero-h1 .char-group:nth-child(2) .char-inner{animation-delay:0.6s}
+.hero-h1 .char-group:nth-child(3) .char-inner{animation-delay:0.75s}
+@keyframes charReveal{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+
+.hero-h1 .stroke-text{
+  -webkit-text-stroke:2px var(--jade);
+  color:transparent;
+}
+
+.hero-sub{
+  font-family:'Noto Serif SC',serif;font-size:17px;font-weight:300;
+  color:var(--ink3);line-height:1.9;letter-spacing:0.05em;
+  max-width:500px;margin:28px 0 48px;
+  opacity:0;animation:fadeUp 0.8s 0.9s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-actions{
+  display:flex;gap:16px;align-items:center;
+  opacity:0;animation:fadeUp 0.8s 1.1s ease both;
+}
+.btn-jade{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 36px;background:var(--jade);color:white;
+  font-family:'Noto Serif SC',serif;font-size:14px;font-weight:500;
+  letter-spacing:0.14em;text-decoration:none;border-radius:2px;
+  position:relative;overflow:hidden;transition:all 0.35s;
+}
+.btn-jade::before{
+  content:'';position:absolute;inset:0;
+  background:var(--jade2);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.35s ease;
+}
+.btn-jade:hover::before{transform:scaleX(1)}
+.btn-jade:hover{box-shadow:0 16px 48px rgba(31,92,66,0.3);transform:translateY(-2px)}
+.btn-jade span{position:relative;z-index:1}
+.btn-jade .arrow{position:relative;z-index:1;transition:transform 0.3s}
+.btn-jade:hover .arrow{transform:translateX(5px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 32px;
+  border:1.5px solid var(--border2);color:var(--ink2);
+  font-family:'Noto Serif SC',serif;font-size:14px;letter-spacing:0.12em;
+  text-decoration:none;border-radius:2px;
+  transition:all 0.3s;
+}
+.btn-ghost:hover{border-color:var(--jade);color:var(--jade);transform:translateY(-2px)}
+
+.hero-scroll{
+  position:absolute;bottom:40px;left:60px;z-index:20;
+  display:flex;align-items:center;gap:14px;
+  opacity:0;animation:fadeUp 0.8s 1.4s ease both;
+}
+.scroll-pill{
+  width:26px;height:44px;border:1.5px solid var(--border2);
+  border-radius:13px;display:flex;align-items:flex-start;justify-content:center;
+  padding-top:6px;
+}
+.scroll-pill-inner{
+  width:4px;height:10px;background:var(--jade);border-radius:2px;
+  animation:scrollDrop 2s ease-in-out infinite;
+}
+@keyframes scrollDrop{0%,100%{transform:translateY(0);opacity:1}60%{transform:translateY(12px);opacity:0}61%{transform:translateY(0);opacity:0}80%{opacity:1}}
+.scroll-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:0.35em;color:var(--muted);text-transform:uppercase}
+
+/* ============================================================
+   STATS BAND
+============================================================ */
+.stats-band{
+  background:var(--jade);
+  padding:0;overflow:hidden;
+  position:relative;
+}
+.stats-band-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-cell{
+  padding:36px 40px;
+  border-right:1px solid rgba(255,255,255,0.1);
+  position:relative;overflow:hidden;
+  transition:background 0.3s;cursor:default;
+}
+.stat-cell:last-child{border-right:none}
+.stat-cell:hover{background:rgba(255,255,255,0.05)}
+.stat-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:linear-gradient(90deg,rgba(255,255,255,0.4),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s ease;
+}
+.stat-cell:hover::before{transform:scaleX(1)}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;
+  color:white;line-height:1;display:block;
+}
+.stat-n sup{font-size:22px}
+.stat-l{font-family:'Noto Serif SC',serif;font-size:12px;letter-spacing:0.15em;color:rgba(255,255,255,0.6);margin-top:6px;display:block}
+
+/* ============================================================
+   SECTION COMMON
+============================================================ */
+section{position:relative}
+.pad{padding:104px 0}
+.pad-sm{padding:80px 0}
+.bg-cream{background:var(--cream)}
+.bg-white{background:var(--white)}
+.bg-jade-soft{background:var(--jade-bg)}
+.bg-gold-soft{background:var(--gold-bg)}
+.container{max-width:1280px;margin:0 auto;padding:0 60px}
+
+.eye{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--jade);margin-bottom:14px;
+}
+.eye::before{content:'';width:24px;height:1px;background:var(--jade)}
+.sec-h{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(28px,4vw,52px);font-weight:700;
+  color:var(--ink);letter-spacing:0.03em;
+  line-height:1.2;margin-bottom:16px;
+}
+.sec-sub{
+  font-family:'Noto Serif SC',serif;font-size:15px;font-weight:300;
+  color:var(--muted);letter-spacing:0.06em;line-height:1.9;
+}
+.rule{
+  width:48px;height:2px;
+  background:linear-gradient(90deg,var(--jade),var(--jade3));
+  margin:18px 0 52px;border-radius:1px;
+  position:relative;overflow:hidden;
+}
+.rule::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.8),transparent);
+  animation:ruleShine 3s ease-in-out infinite;
+}
+@keyframes ruleShine{from{transform:translateX(-100%)}to{transform:translateX(300%)}};
+
+/* ============================================================
+   ABOUT SECTION
+============================================================ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+
+.about-body-text{
+  font-family:'Noto Serif SC',serif;font-size:15px;font-weight:300;
+  color:var(--ink3);line-height:2.1;letter-spacing:0.04em;margin-bottom:22px;
+}
+.about-body-text strong{color:var(--jade);font-weight:600}
+
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0}
+.about-tag{
+  padding:7px 16px;font-size:12px;letter-spacing:0.08em;
+  background:var(--jade-bg);border:1px solid var(--jade-pale);
+  color:var(--jade);font-family:'Noto Serif SC',serif;
+  border-radius:2px;transition:all 0.25s;cursor:default;
+}
+.about-tag:hover{background:var(--jade);color:white;transform:translateY(-2px);box-shadow:0 6px 16px rgba(31,92,66,0.2)}
+
+/* TL */
+.tl{display:flex;flex-direction:column;gap:0}
+.tl-row{
+  display:grid;grid-template-columns:80px 1fr;gap:24px;
+  padding-bottom:32px;position:relative;
+  opacity:0;transform:translateX(20px);
+  transition:all 0.6s ease;
+}
+.tl-row.vis{opacity:1;transform:translateX(0)}
+.tl-row::before{
+  content:'';position:absolute;
+  left:36px;top:20px;bottom:0;
+  width:1px;background:linear-gradient(to bottom,var(--jade-pale),transparent);
+}
+.tl-row:last-child::before{display:none}
+.tl-left{text-align:center;padding-top:2px}
+.tl-yr{
+  font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;
+  color:var(--jade);display:block;line-height:1;
+}
+.tl-dot-w{display:flex;justify-content:center;margin-top:10px}
+.tl-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--jade);
+  box-shadow:0 0 0 3px var(--jade-bg),0 0 0 4px var(--jade-pale);
+}
+.tl-row.current .tl-dot{background:var(--gold2);box-shadow:0 0 0 3px var(--gold-bg),0 0 0 4px var(--gold-pale)}
+.tl-row.current .tl-yr{color:var(--gold2)}
+.tl-text{
+  font-family:'Noto Serif SC',serif;font-size:14px;font-weight:300;
+  color:var(--ink3);line-height:1.8;padding-top:1px;
+}
+.tl-row.current .tl-text{color:var(--gold);font-weight:500}
+
+/* Metrics */
+.metric-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:36px}
+.m-cell{
+  padding:24px 20px;text-align:center;
+  background:var(--white);border:1px solid var(--border);
+  transition:all 0.3s;cursor:default;position:relative;overflow:hidden;
+}
+.m-cell::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--jade);transform:scaleX(0);transition:transform 0.3s;
+}
+.m-cell:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow)}
+.m-cell:hover::after{transform:scaleX(1)}
+.m-n{
+  font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;
+  color:var(--jade);line-height:1;display:block;
+}
+.m-l{font-size:11px;color:var(--muted);letter-spacing:0.12em;margin-top:6px;font-family:'Noto Serif SC',serif}
+
+/* ============================================================
+   IP SECTION
+============================================================ */
+.ip-section{background:var(--ink);padding:100px 0;position:relative;overflow:hidden}
+.ip-section::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%,rgba(31,92,66,0.15) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 60% at 85% 30%,rgba(154,107,32,0.1) 0%,transparent 60%);
+}
+.ip-section .eye,.ip-section .sec-h,.ip-section .sec-sub{color:rgba(247,244,238,0.9)}
+.ip-section .eye{color:rgba(200,160,80,0.9)}
+.ip-section .rule{background:linear-gradient(90deg,rgba(200,160,80,0.8),transparent)}
+
+.ip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:0}
+.ip-card{
+  padding:56px 40px;
+  position:relative;overflow:hidden;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  cursor:default;transition:all 0.45s;
+}
+.ip-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(31,92,66,0.08) 0%,transparent 100%);
+  opacity:0;transition:opacity 0.4s;
+}
+.ip-card:nth-child(2)::before{background:linear-gradient(135deg,rgba(154,107,32,0.08) 0%,transparent 100%)}
+.ip-card:nth-child(3)::before{background:linear-gradient(135deg,rgba(122,58,30,0.08) 0%,transparent 100%)}
+.ip-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-8px)}
+.ip-card:hover::before{opacity:1}
+
+.ip-accent-line{
+  width:36px;height:2px;margin-bottom:28px;
+  background:linear-gradient(90deg,var(--jade3),var(--jade));
+  position:relative;overflow:hidden;
+  transition:width 0.4s;
+}
+.ip-card:nth-child(2) .ip-accent-line{background:linear-gradient(90deg,var(--gold3),var(--gold2))}
+.ip-card:nth-child(3) .ip-accent-line{background:linear-gradient(90deg,#E0805A,var(--terra2))}
+.ip-card:hover .ip-accent-line{width:60px}
+.ip-accent-line::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.7),transparent);animation:ruleShine 2.5s ease-in-out infinite}
+
+.ip-num{
+  font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;
+  color:rgba(255,255,255,0.04);position:absolute;top:16px;right:20px;
+  line-height:1;pointer-events:none;
+}
+.ip-name{
+  font-family:'Noto Serif SC',serif;font-size:20px;font-weight:700;
+  color:rgba(247,244,238,0.95);margin-bottom:14px;letter-spacing:0.04em;
+}
+.ip-desc{
+  font-size:13px;color:rgba(247,244,238,0.5);
+  line-height:1.9;font-weight:300;font-family:'Noto Serif SC',serif;
+}
+
+/* ============================================================
+   BUSINESS SECTION
+============================================================ */
+.biz-wrap{background:var(--white)}
+.biz-tabs{
+  display:flex;gap:0;
+  border-bottom:1px solid var(--border);
+  margin-bottom:52px;
+}
+.biz-tab{
+  padding:14px 32px;
+  font-family:'Noto Serif SC',serif;font-size:14px;
+  letter-spacing:0.08em;color:var(--muted);
+  background:none;border:none;border-bottom:2px solid transparent;
+  margin-bottom:-1px;cursor:pointer;transition:all 0.3s;
+}
+.biz-tab:hover{color:var(--ink2)}
+.biz-tab.on{color:var(--jade);border-bottom-color:var(--jade);font-weight:500}
+.biz-panel{display:none}
+.biz-panel.on{display:block;animation:panelIn 0.35s ease}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.biz-intro{
+  font-family:'Noto Serif SC',serif;font-size:14px;color:var(--muted);
+  letter-spacing:0.07em;line-height:1.9;margin-bottom:36px;
+  padding-bottom:24px;border-bottom:1px solid var(--border);font-weight:300;
+}
+
+/* Hotel cards */
+.h-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.h-card{
+  padding:32px 28px;background:var(--cream);
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+  cursor:default;transition:all 0.4s;
+}
+.h-card-top{height:3px;position:absolute;top:0;left:0;right:0;
+  background:linear-gradient(90deg,var(--jade),var(--jade3));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;
+}
+.h-card:hover{background:var(--white);box-shadow:0 16px 48px var(--shadow2);transform:translateY(-4px)}
+.h-card:hover .h-card-top{transform:scaleX(1)}
+.h-badge{
+  display:inline-block;padding:3px 12px;margin-bottom:14px;
+  border:1px solid var(--jade-pale);background:var(--jade-bg);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:0.22em;color:var(--jade);border-radius:2px;
+}
+.h-name{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.h-desc{font-size:13px;color:var(--muted);line-height:1.9;font-weight:300}
+
+/* Scenic */
+.scenic-grid{display:grid;grid-template-columns:200px 1fr;gap:2px}
+.level-col{display:flex;flex-direction:column;gap:2px}
+.level-badge{
+  flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:32px 24px;background:var(--jade);color:white;text-align:center;cursor:default;
+  transition:background 0.3s;
+}
+.level-badge:hover{background:var(--jade2)}
+.level-badge.b{background:var(--cream2);color:var(--jade)}
+.level-badge.b:hover{background:var(--cream3)}
+.lb-n{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1}
+.lb-l{font-family:'Noto Serif SC',serif;font-size:11px;letter-spacing:0.14em;margin-top:6px;opacity:0.8}
+.spots-col{display:flex;flex-direction:column;gap:2px}
+.spot{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:22px 26px;background:var(--cream);border:1px solid var(--border);
+  transition:all 0.3s;cursor:default;
+}
+.spot:hover{background:var(--white);transform:translateX(4px);box-shadow:4px 0 16px var(--shadow)}
+.spot-dot{width:9px;height:9px;border-radius:50%;background:var(--jade);flex-shrink:0;margin-top:4px;box-shadow:0 0 0 3px var(--jade-pale)}
+.spot-name{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.spot-tags{display:flex;gap:6px;flex-wrap:wrap}
+.s-tag{
+  padding:2px 10px;font-size:11px;
+  background:var(--cream2);border:1px solid var(--border);
+  color:var(--muted);border-radius:2px;
+}
+.venues-box{margin-top:20px;padding:28px 32px;background:var(--cream);border:1px solid var(--border)}
+.venues-title{font-size:12px;color:var(--muted);letter-spacing:0.2em;margin-bottom:16px;font-family:'Noto Serif SC',serif}
+.v-pills{display:flex;flex-wrap:wrap;gap:8px}
+.v-pill{
+  padding:6px 16px;font-size:12px;
+  background:var(--white);border:1px solid var(--border);
+  color:var(--ink3);font-family:'Noto Serif SC',serif;border-radius:2px;
+  transition:all 0.25s;cursor:default;
+}
+.v-pill:hover{border-color:var(--jade);color:var(--jade);transform:translateY(-2px)}
+
+/* ============================================================
+   STRATEGY SECTION
+============================================================ */
+.strat-section{background:var(--cream)}
+.strat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
+.strat-card{
+  padding:44px 40px;background:var(--white);
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+  cursor:default;transition:all 0.4s;
+}
+.strat-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px var(--shadow2)}
+.strat-card::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:linear-gradient(to bottom,var(--jade),var(--jade3));
+  transform:scaleY(0);transform-origin:top;transition:transform 0.4s;
+}
+.strat-card:hover::after{transform:scaleY(1)}
+.strat-card:nth-child(2)::after,.strat-card:nth-child(4)::after{background:linear-gradient(to bottom,var(--gold2),var(--gold3))}
+.strat-num{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:rgba(26,18,8,0.05);line-height:1;margin-bottom:-6px}
+.strat-zone{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:0.36em;color:var(--jade);margin-bottom:16px}
+.strat-card:nth-child(2) .strat-zone,.strat-card:nth-child(4) .strat-zone{color:var(--gold)}
+.strat-title{font-family:'Noto Serif SC',serif;font-size:21px;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:0.03em}
+.strat-desc{font-size:13px;color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:24px;font-family:'Noto Serif SC',serif}
+.strat-items{display:flex;flex-direction:column;gap:7px}
+.strat-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;color:var(--muted);font-family:'Noto Serif SC',serif;letter-spacing:0.04em;
+}
+.strat-item::before{content:'';width:18px;height:1px;background:var(--jade);flex-shrink:0}
+.strat-card:nth-child(2) .strat-item::before,.strat-card:nth-child(4) .strat-item::before{background:var(--gold2)}
+
+/* ============================================================
+   PROJECTS SECTION
+============================================================ */
+.proj-section{background:var(--white)}
+.proj-hero{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  padding:48px;background:var(--jade-bg);border:1px solid var(--jade-pale);
+  border-top:4px solid var(--jade);
+  margin-bottom:36px;position:relative;overflow:hidden;
+}
+.proj-hero::before{
+  content:'重点项目';font-family:'Noto Serif SC',serif;font-size:120px;font-weight:900;
+  color:rgba(31,92,66,0.04);position:absolute;right:-20px;bottom:-30px;
+  pointer-events:none;line-height:1;
+}
+.proj-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:0.3em;color:var(--jade);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.proj-dot{width:6px;height:6px;border-radius:50%;background:var(--jade);animation:dotBlink 2s ease-in-out infinite}
+.proj-title{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:14px}
+.proj-desc{font-family:'Noto Serif SC',serif;font-size:14px;color:var(--ink3);line-height:2;font-weight:300}
+.proj-desc strong{color:var(--jade);font-weight:600}
+.proj-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ps{
+  padding:18px 20px;background:var(--white);border:1px solid var(--jade-pale);
+  transition:all 0.3s;cursor:default;
+}
+.ps:hover{border-color:var(--jade);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow)}
+.ps-v{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--jade);line-height:1;display:block}
+.ps-l{font-size:11px;color:var(--muted);letter-spacing:0.08em;margin-top:5px;font-family:'Noto Serif SC',serif}
+
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.p-card{
+  padding:28px 24px;background:var(--cream);border:1px solid var(--border);
+  border-top:2px solid var(--border2);
+  cursor:default;transition:all 0.35s;position:relative;overflow:hidden;
+}
+.p-card:hover{
+  background:var(--white);border-color:var(--jade-pale);
+  border-top-color:var(--jade);
+  transform:translateY(-5px);box-shadow:0 20px 48px var(--shadow2);
+}
+.p-id{font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--light);letter-spacing:0.28em;margin-bottom:10px}
+.p-name{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.5}
+.p-desc{font-size:12px;color:var(--muted);line-height:1.9;font-weight:300}
+
+/* ============================================================
+   HONORS
+============================================================ */
+.honors-section{background:var(--cream)}
+.hon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:52px}
+.hon-card{
+  display:flex;gap:18px;padding:26px 24px;
+  background:var(--white);border:1px solid var(--border);
+  transition:all 0.3s;cursor:default;position:relative;overflow:hidden;
+}
+.hon-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--gold2),var(--gold3));
+  transform:scaleY(0);transform-origin:top;transition:transform 0.4s;
+}
+.hon-card:hover::before{transform:scaleY(1)}
+.hon-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px var(--shadow)}
+.hon-icon{
+  width:44px;height:44px;flex-shrink:0;border-radius:4px;
+  background:var(--gold-bg);border:1px solid var(--gold-pale);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.hon-lv{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:10px;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;margin-bottom:7px}
+.hon-title{font-family:'Noto Serif SC',serif;font-size:13px;font-weight:500;color:var(--ink2);line-height:1.7}
+.hon-year{font-size:11px;color:var(--light);margin-top:5px;font-family:'Cormorant Garamond',serif}
+
+/* ============================================================
+   VISION SECTION  
+============================================================ */
+.vision-section{
+  background:var(--jade);
+  padding:120px 0;text-align:center;
+  position:relative;overflow:hidden;
+}
+.vision-section::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 80% at 50% 50%,rgba(255,255,255,0.05) 0%,transparent 70%);
+}
+/* Animated lines */
+.vision-lines{position:absolute;inset:0;pointer-events:none}
+.vl{position:absolute;background:rgba(255,255,255,0.04)}
+.vl-h{height:1px;left:0;right:0;animation:vLineH 8s ease-in-out infinite}
+.vl-v{width:1px;top:0;bottom:0;animation:vLineV 10s ease-in-out infinite}
+.vl:nth-child(1){top:20%}
+.vl:nth-child(2){top:80%;animation-delay:3s}
+.vl:nth-child(3){left:20%;animation-delay:1s}
+.vl:nth-child(4){left:80%;animation-delay:4s}
+@keyframes vLineH{0%,100%{transform:scaleX(0.3);opacity:0.3}50%{transform:scaleX(1);opacity:1}}
+@keyframes vLineV{0%,100%{transform:scaleY(0.3);opacity:0.3}50%{transform:scaleY(1);opacity:1}}
+
+.vision-section .eye{color:rgba(255,255,255,0.5)}
+.vision-section .eye::before{background:rgba(255,255,255,0.3)}
+.vision-q{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(18px,2.8vw,30px);font-weight:400;
+  color:rgba(255,255,255,0.9);line-height:2.2;letter-spacing:0.08em;
+  max-width:820px;margin:0 auto 16px;position:relative;z-index:1;
+}
+.vision-q em{font-style:normal;font-weight:700;color:white}
+.vision-by{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:13px;letter-spacing:0.2em;color:rgba(255,255,255,0.45);
+  margin-bottom:64px;position:relative;z-index:1;
+}
+.vision-pillars{display:flex;justify-content:center;gap:64px;position:relative;z-index:1}
+.vp{text-align:center;padding:0 28px;border-right:1px solid rgba(255,255,255,0.12)}
+.vp:last-child{border-right:none}
+.vp-line{width:1px;height:52px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.3),transparent);margin:0 auto 20px}
+.vp-name{font-family:'Noto Serif SC',serif;font-size:17px;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.1em}
+.vp-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:0.22em;color:rgba(255,255,255,0.4);margin-top:6px}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer{background:var(--ink);padding:72px 0 0}
+.footer-grid{
+  max-width:1280px;margin:0 auto;padding:0 60px 56px;
+  display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:56px;
+}
+.f-name{font-family:'Noto Serif SC',serif;font-size:16px;font-weight:700;color:var(--gold3);margin-bottom:6px;letter-spacing:0.04em}
+.f-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.18em;margin-bottom:20px}
+.f-about{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;font-weight:300;font-family:'Noto Serif SC',serif}
+.f-col-h{font-family:'Noto Serif SC',serif;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.15em;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.f-ul{list-style:none}
+.f-ul li{font-size:13px;color:rgba(255,255,255,0.28);margin-bottom:10px;font-weight:300;cursor:default;transition:color 0.2s}
+.f-ul li:hover{color:rgba(200,160,80,0.7)}
+.footer-bottom{
+  max-width:1280px;margin:0 auto;padding:20px 60px;
+  border-top:1px solid rgba(255,255,255,0.05);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.f-copy{font-size:11px;color:rgba(255,255,255,0.18);font-family:'Cormorant Garamond',serif;font-style:italic}
+
+/* ============================================================
+   SCROLL REVEAL SYSTEM
+============================================================ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.rv-l{opacity:0;transform:translateX(-24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.rv-r{opacity:0;transform:translateX(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.rv-scale{opacity:0;transform:scale(0.95);transition:opacity 0.7s ease,transform 0.7s ease}
+.vis{opacity:1!important;transform:none!important}
+
+/* ============================================================
+   HORIZONTAL SCROLL MARQUEE (between sections)
+============================================================ */
+.marquee-band{
+  overflow:hidden;padding:20px 0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--white);
+}
+.marquee-inner{display:flex;gap:0;width:max-content;animation:marqueeScroll 25s linear infinite}
+.marquee-item{
+  display:flex;align-items:center;gap:16px;padding:0 48px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:15px;letter-spacing:0.18em;color:var(--muted);white-space:nowrap;
+}
+.marquee-item strong{color:var(--jade);font-weight:600}
+.marquee-sep{width:4px;height:4px;border-radius:50%;background:var(--border2)}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero-content{padding:100px 20px 60px}
+  .hero-float{display:none}
+  .container{padding:0 20px}
+  .about-grid,.proj-hero,.footer-grid{grid-template-columns:1fr}
+  .h-grid,.strat-grid,.hon-grid,.proj-grid{grid-template-columns:1fr}
+  .ip-grid{grid-template-columns:1fr}
+  .stats-band-inner{grid-template-columns:repeat(2,1fr)}
+  .scenic-grid{grid-template-columns:1fr}
+  .metric-trio{grid-template-columns:1fr 1fr 1fr}
+  .pad{padding:70px 0}
+  .vision-pillars{gap:20px}
+  .vision-q{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-dot"></span>宁波河姆渡文化旅游集团有限公司</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>总资产 218 亿元</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>5 处 A 级景区</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>解码七千年文明，启航全域文旅新时代</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Hemudu Cultural Tourism Group</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>余姚市政府直属国有企业</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>宁波河姆渡文化旅游集团有限公司</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>总资产 218 亿元</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>5 处 A 级景区</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>解码七千年文明，启航全域文旅新时代</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Hemudu Cultural Tourism Group</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>余姚市政府直属国有企业</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">
+    <div class="nav-emblem"><div class="nav-emblem-diamond"></div></div>
+    <div class="nav-name">
+      <div class="nav-name-zh">宁波河姆渡文化旅游集团</div>
+      <div class="nav-name-en">Hemudu Cultural Tourism Group</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">集团概览</a>
+    <a href="#business">主营业务</a>
+    <a href="#strategy">战略规划</a>
+    <a href="#projects">项目成果</a>
+    <a href="#honors">荣誉集锦</a>
+    <a href="#vision" class="nav-contact">联系我们</a>
+  </div>
+</nav>
+
+<!-- ============================================================ HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-1"></div>
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+
+  <!-- Float cards -->
+  <div class="hero-float hero-float-1">
+    <div class="float-num">218<sup>亿</sup></div>
+    <div class="float-lbl">总资产规模</div>
+    <div class="float-bar"></div>
+  </div>
+  <div class="hero-float hero-float-2">
+    <div class="float-num">32</div>
+    <div class="float-lbl">旗下企业</div>
+    <div class="float-bar"></div>
+  </div>
+  <div class="hero-float hero-float-3">
+    <div class="float-num">5</div>
+    <div class="float-lbl">A级景区</div>
+    <div class="float-bar"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="kicker-line"></span>
+      <span class="kicker-dot"></span>
+      余姚市政府直属国有企业 · Est. 2008
+    </div>
+    <h1 class="hero-h1">
+      <span class="char-group"><span class="char-inner">解码</span></span>
+      <span class="char-group"><span class="char-inner stroke-text">七千年</span></span>
+      <span class="char-group"><span class="char-inner">文明启新程</span></span>
+    </h1>
+    <p class="hero-sub">宁波河姆渡文化旅游集团有限公司——深耕全域文旅，守护历史文脉，以创新之力开启文旅融合发展新时代。</p>
+    <div class="hero-actions">
+      <a href="#about" class="btn-jade"><span>探索集团全貌</span><span class="arrow">→</span></a>
+      <a href="#business" class="btn-ghost">主营业务</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-pill"><div class="scroll-pill-inner"></div></div>
+    <span class="scroll-label">向下探索</span>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-band-inner">
+    <div class="stat-cell"><span class="stat-n">218<sup>亿</sup></span><span class="stat-l">总资产规模</span></div>
+    <div class="stat-cell"><span class="stat-n">32</span><span class="stat-l">旗下企业</span></div>
+    <div class="stat-cell"><span class="stat-n">30<sup>亿</sup></span><span class="stat-l">注册资本</span></div>
+    <div class="stat-cell"><span class="stat-n">5</span><span class="stat-l">A 级旅游景区</span></div>
+  </div>
+</div>
+
+<!-- ============================================================ ABOUT -->
+<section class="pad bg-white" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="rv-l">
+        <div class="eye">Company Overview</div>
+        <h2 class="sec-h">传承历史文脉<br>驱动文旅发展</h2>
+        <div class="rule"></div>
+        <p class="about-body-text">宁波河姆渡文化旅游集团有限公司，是<strong>余姚市政府直属的市场化国有资本投资运营公司</strong>，以全域旅游为战略导向，坚持"投资、融资、开发、建设、经营"五位一体的运营模式。</p>
+        <p class="about-body-text">集团致力于构建"食、住、行、文、商、旅"全要素服务体系，覆盖文旅体教投资建设、文旅基础设施建设、政府建设项目投资及国有资本投资运营，立志建成一个<strong>专精特新、小而美</strong>的文旅集团。</p>
+        <div class="about-tags">
+          <span class="about-tag">国有文化产业发展商</span>
+          <span class="about-tag">公共文化服务运营商</span>
+          <span class="about-tag">休闲旅游产业发展商</span>
+          <span class="about-tag">全域旅游投资运营商</span>
+          <span class="about-tag">国有资本投资运营商</span>
+        </div>
+        <div class="metric-trio">
+          <div class="m-cell"><span class="m-n">218<span style="font-size:18px">亿</span></span><div class="m-l">总资产</div></div>
+          <div class="m-cell"><span class="m-n">32</span><div class="m-l">旗下企业</div></div>
+          <div class="m-cell"><span class="m-n">30<span style="font-size:18px">亿</span></span><div class="m-l">注册资本</div></div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:0.36em;color:var(--jade);margin-bottom:32px;text-transform:uppercase">发展历程 · Timeline</div>
+        <div class="tl">
+          <div class="tl-row"><div class="tl-left"><span class="tl-yr">2008</span><div class="tl-dot-w"><div class="tl-dot"></div></div></div><div class="tl-text">余姚市四明山旅游投资发展有限公司正式成立，开启文旅发展新征程</div></div>
+          <div class="tl-row"><div class="tl-left"><span class="tl-yr">2018</span><div class="tl-dot-w"><div class="tl-dot"></div></div></div><div class="tl-text">更名为余姚市阳明文化旅游集团有限公司，以阳明心学文化为核心拓展文旅版图</div></div>
+          <div class="tl-row"><div class="tl-left"><span class="tl-yr">2023</span><div class="tl-dot-w"><div class="tl-dot"></div></div></div><div class="tl-text">正式更名为宁波河姆渡文化旅游集团有限公司，锚定史前文明品牌，深化全域文旅布局</div></div>
+          <div class="tl-row current"><div class="tl-left"><span class="tl-yr">2026</span><div class="tl-dot-w"><div class="tl-dot"></div></div></div><div class="tl-text">锚定深化全域旅游战略，开启文旅融合发展新纪元</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IP SECTION (dark) -->
+<section class="ip-section">
+  <div class="container">
+    <div class="rv">
+      <div class="eye">Cultural IP Matrix</div>
+      <h2 class="sec-h" style="color:rgba(247,244,238,0.95)">三大文化 IP 矩阵</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="ip-grid rv">
+      <div class="ip-card">
+        <div class="ip-num">01</div>
+        <div class="ip-accent-line"></div>
+        <div class="ip-name">河姆渡史前文化</div>
+        <div class="ip-desc">七千年文明印记，稻作文化发源地，国家考古遗址公园核心资源，是华夏文明的深厚根脉与最具影响力的史前文化旅游目的地之一。</div>
+      </div>
+      <div class="ip-card">
+        <div class="ip-num">02</div>
+        <div class="ip-accent-line"></div>
+        <div class="ip-name">姚江名人文化</div>
+        <div class="ip-desc">王阳明心学圣地，余姚历史名人辈出，人文底蕴深厚，是浙江省重要的历史文化旅游资源，传承千年人文精华。</div>
+      </div>
+      <div class="ip-card">
+        <div class="ip-num">03</div>
+        <div class="ip-accent-line"></div>
+        <div class="ip-name">四明山红色文化</div>
+        <div class="ip-desc">浙东（四明山）抗日根据地旧址群，红色基因代代传承，国家4A级景区，是重要的爱国主义教育基地与红色研学目的地。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band">
+  <div class="marquee-inner">
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>四明湖开元山庄酒店</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>禾居酒店</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>丹山赤水景区</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>天下玉苑景区</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>河姆渡考古遗址公园</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>四明山地质公园</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>紫溪原舍酒店</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>鹿亭中村</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>6944酒店</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>宁波阳明旅行社</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>四明山抗日根据地旧址群</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>余姚名人馆</span>
+    <!-- repeat -->
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>四明湖开元山庄酒店</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>禾居酒店</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>丹山赤水景区</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>天下玉苑景区</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>河姆渡考古遗址公园</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>四明山地质公园</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>紫溪原舍酒店</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>鹿亭中村</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>6944酒店</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>宁波阳明旅行社</span>
+    <span class="marquee-item"><span class="marquee-sep"></span><strong>四明山抗日根据地旧址群</strong></span>
+    <span class="marquee-item"><span class="marquee-sep"></span>余姚名人馆</span>
+  </div>
+</div>
+
+<!-- ============================================================ BUSINESS -->
+<section class="pad biz-wrap" id="business">
+  <div class="container">
+    <div class="rv">
+      <div class="eye">Main Business</div>
+      <h2 class="sec-h">构建核心矩阵，锻造硬核实力</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="biz-tabs rv">
+      <button class="biz-tab on" onclick="bizSwitch('hotels',this)">酒店板块</button>
+      <button class="biz-tab" onclick="bizSwitch('scenic',this)">景区板块</button>
+      <button class="biz-tab" onclick="bizSwitch('travel',this)">旅行社 · 混改</button>
+    </div>
+
+    <div class="biz-panel on" id="bp-hotels">
+      <p class="biz-intro">多品牌共同发展，构建全品类住宿生态，以差异化定位满足多层次旅游住宿需求。</p>
+      <div class="h-grid">
+        <div class="h-card"><div class="h-card-top"></div><div class="h-badge">High-end Resort</div><div class="h-name">四明湖开元山庄酒店</div><div class="h-desc">依托四明湖优质山水资源，以开元品牌赋能，提供高品质度假体验，配备国际会议中心，兼顾商务与休闲双重需求。</div></div>
+        <div class="h-card"><div class="h-card-top"></div><div class="h-badge">Cultural Boutique</div><div class="h-name">禾居酒店</div><div class="h-desc">以"禾"为文化符号，融合稻作文明意象与现代设计美学，打造具有在地文化特色的精品住宿体验，深度诠释河姆渡文化内涵。</div></div>
+        <div class="h-card"><div class="h-card-top"></div><div class="h-badge">Nature Retreat</div><div class="h-name">紫溪原舍酒店</div><div class="h-desc">隐匿于四明山自然生态之中，以原生态居住理念为核心，提供沉浸式山林康养度假体验，是慢生活的理想归处。</div></div>
+        <div class="h-card"><div class="h-card-top"></div><div class="h-badge">Heritage Theme</div><div class="h-name">6944酒店</div><div class="h-desc">以河姆渡遗址文化为主题，创意设计展现史前文明魅力，兼具研学体验与度假功能，是沉浸式文化旅游的绝佳入口。</div></div>
+      </div>
+    </div>
+
+    <div class="biz-panel" id="bp-scenic">
+      <p class="biz-intro">"文化＋生态"双轮驱动，打造差异化旅游目的地集群，构建余姚全域旅游核心吸引力。</p>
+      <div class="scenic-grid">
+        <div class="level-col">
+          <div class="level-badge"><div class="lb-n">3</div><div class="lb-l">处国家 4A 级景区</div></div>
+          <div class="level-badge b"><div class="lb-n">2</div><div class="lb-l">处国家 3A 级景区</div></div>
+        </div>
+        <div class="spots-col">
+          <div class="spot"><div class="spot-dot"></div><div><div class="spot-name">浙东（四明山）抗日根据地旧址群</div><div class="spot-tags"><span class="s-tag">4A</span><span class="s-tag">红色研学</span><span class="s-tag">爱国教育</span></div></div></div>
+          <div class="spot"><div class="spot-dot"></div><div><div class="spot-name">天下玉苑景区</div><div class="spot-tags"><span class="s-tag">4A</span><span class="s-tag">玉器文化</span><span class="s-tag">山水风光</span></div></div></div>
+          <div class="spot"><div class="spot-dot"></div><div><div class="spot-name">丹山赤水景区</div><div class="spot-tags"><span class="s-tag">4A</span><span class="s-tag">丹霞地貌</span><span class="s-tag">道教文化</span></div></div></div>
+          <div class="spot"><div class="spot-dot" style="background:var(--jade3);box-shadow:0 0 0 3px #E5F4EC"></div><div><div class="spot-name">四明山地质公园</div><div class="spot-tags"><span class="s-tag">3A</span><span class="s-tag">地质科普</span><span class="s-tag">自然教育</span></div></div></div>
+          <div class="spot"><div class="spot-dot" style="background:var(--jade3);box-shadow:0 0 0 3px #E5F4EC"></div><div><div class="spot-name">鹿亭中村</div><div class="spot-tags"><span class="s-tag">3A</span><span class="s-tag">古村落</span><span class="s-tag">乡村旅游</span></div></div></div>
+        </div>
+      </div>
+      <div class="venues-box">
+        <div class="venues-title">其他文旅场馆 &amp; 运营设施</div>
+        <div class="v-pills">
+          <span class="v-pill">余姚市游客服务中心</span><span class="v-pill">余姚市城市展览馆</span><span class="v-pill">余姚名人馆</span><span class="v-pill">河姆渡遗址博物馆</span><span class="v-pill">河姆渡考古遗址公园</span><span class="v-pill">横坎头村新时代文明实践站</span><span class="v-pill">姚江游船</span><span class="v-pill">初新营地</span><span class="v-pill">河姆渡考古遗址公园启动区（一期）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-panel" id="bp-travel">
+      <p class="biz-intro">聚焦旅游市场需求，整合优质资本，构建全链条文旅服务与协同发展新模式。</p>
+      <div class="h-grid">
+        <div class="h-card"><div class="h-card-top"></div><div class="h-badge">Travel Agency</div><div class="h-name">宁波阳明旅行社</div><div class="h-desc">2023年起正式运营，承接国企疗休养、中小学研学、国内旅游业务，构建从策划到执行的全链条旅游服务体系，深耕浙东文旅市场。</div></div>
+        <div class="h-card"><div class="h-card-top"></div><div class="h-badge">Mixed Ownership</div><div class="h-name">多元混改业务板块</div><div class="h-desc">旗下设宁波舜诚劳务服务、余姚趣山野文旅、宁波星焱科技、宁波姚聚档案科技等多家混改公司，涵盖人力资源、文旅开发、档案管理等多元领域。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ STRATEGY -->
+<section class="pad strat-section" id="strategy">
+  <div class="container">
+    <div class="rv">
+      <div class="eye">Strategic Layout</div>
+      <h2 class="sec-h">锚定发展航向，擘画全域图景</h2>
+      <div class="rule"></div>
+      <p class="sec-sub">四大核心板块战略布局，以文化为引擎、生态为基底、项目为抓手，构建全域文旅发展新格局。</p>
+    </div>
+    <div class="strat-grid">
+      <div class="strat-card rv"><div class="strat-num">01</div><div class="strat-zone">Urban Zone · 城区板块</div><div class="strat-title">文化赋能城市更新</div><div class="strat-desc">培育三大文化IP矩阵，推动历史文化街区改造升级与文旅商圈建设，以文化引擎驱动城市有机更新。</div><div class="strat-items"><div class="strat-item">历史文化街区改造升级</div><div class="strat-item">文旅商圈建设</div><div class="strat-item">三大IP协同培育</div></div></div>
+      <div class="strat-card rv"><div class="strat-num">02</div><div class="strat-zone">East Zone · 姚东片区</div><div class="strat-title">考古文旅目的地</div><div class="strat-desc">以河姆渡考古国家遗址公园为核心，联动田螺山、井头山遗址，打造具有重要影响力的考古文化旅游目的地。</div><div class="strat-items"><div class="strat-item">考古研学核心基地</div><div class="strat-item">文化体验枢纽</div></div></div>
+      <div class="strat-card rv"><div class="strat-num">03</div><div class="strat-zone">Mountain Zone · 四明山区域</div><div class="strat-title">生态文旅创新区</div><div class="strat-desc">EOD项目持续创新，入选宁波市十大民生项目，探索"两山"理论转化新路径，推动"农、文、旅、体"融合发展。</div><div class="strat-items"><div class="strat-item">森林康养</div><div class="strat-item">红色研学</div><div class="strat-item">轻度假产品体系</div></div></div>
+      <div class="strat-card rv"><div class="strat-num">04</div><div class="strat-zone">Lake Zone · 牟山湖片区</div><div class="strat-title">滨水休闲度假区</div><div class="strat-desc">依托牟山湖优质水域生态，精准锁定宁绍周末休闲、长三角家庭度假等四大核心客群，构建全季复合型度假场景。</div><div class="strat-items"><div class="strat-item">水上运动中心</div><div class="strat-item">IP主题酒店</div><div class="strat-item">生态文旅运动目的地</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PROJECTS -->
+<section class="pad proj-section" id="projects">
+  <div class="container">
+    <div class="rv">
+      <div class="eye">Key Projects</div>
+      <h2 class="sec-h">打造标杆示范，夯实阶段成果</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="proj-hero rv">
+      <div>
+        <div class="proj-tag"><span class="proj-dot"></span>重点在建 · In Progress</div>
+        <div class="proj-title">四明山区域EOD项目</div>
+        <div class="proj-desc">入选宁波市<strong>十大民生项目</strong>，探索"两山"理论转化新路径，有力推动四明山区域"农、文、旅、体"融合发展，为四明山旅游品牌建设打牢根基，实现生态与文旅双赢。</div>
+      </div>
+      <div class="proj-stats">
+        <div class="ps"><span class="ps-v">22.6<span style="font-size:14px">万㎡</span></span><div class="ps-l">市民活动中心改造总面积</div></div>
+        <div class="ps"><span class="ps-v">~2<span style="font-size:14px">亿</span></span><div class="ps-l">小球中心总投资规模</div></div>
+        <div class="ps"><span class="ps-v">2.06<span style="font-size:14px">万㎡</span></span><div class="ps-l">小球中心总建筑面积</div></div>
+        <div class="ps"><span class="ps-v">5+</span><div class="ps-l">体育业态（游泳·球类·健身）</div></div>
+      </div>
+    </div>
+    <div class="proj-grid">
+      <div class="p-card rv"><div class="p-id">01 · 十五五谋划</div><div class="p-name">6944酒店萤火虫主题景区</div><div class="p-desc">以"生态保护+文旅融合+研学教育"为定位，打造余姚首个萤火虫主题复合型文旅基地，计划2026年开工。</div></div>
+      <div class="p-card rv"><div class="p-id">02 · 十五五谋划</div><div class="p-name">四明山姚江源茶旅融合产业</div><div class="p-desc">以"标准基地+品牌运营+文旅引流"模式推动茶产业全链升级，打造余姚特色茶文化旅游品牌，2026年开工。</div></div>
+      <div class="p-card rv"><div class="p-id">03 · 十五五谋划</div><div class="p-name">丹山赤水景区提升工程</div><div class="p-desc">以"长三角首选景村融合休闲打卡地"为定位，围绕古村美学、峡谷寻幽四大序列全面升级改造。</div></div>
+      <div class="p-card rv"><div class="p-id">04 · 十五五谋划</div><div class="p-name">梁弄缦兰隐世度假酒店</div><div class="p-desc">集酒店、香草疗愈区、花海观赏区、科技疗愈中心于一体，打造华东高端疗愈型度假目的地。</div></div>
+      <div class="p-card rv"><div class="p-id">05 · 十五五谋划</div><div class="p-name">河姆渡博物院建设项目</div><div class="p-desc">整合河姆渡遗址公园、田螺山、井头山遗址，开发规模化农文旅景观，构建稻作文化农文融合产业链。</div></div>
+      <div class="p-card rv"><div class="p-id">06 · 十五五谋划</div><div class="p-name">牟山湖休闲旅游度假开发</div><div class="p-desc">规划引入IP主题酒店、室内外水乐园、水上运动中心，打造"长三角生态文旅运动目的地"。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ HONORS -->
+<section class="pad honors-section" id="honors">
+  <div class="container">
+    <div class="rv">
+      <div class="eye">Honorary Recognition</div>
+      <h2 class="sec-h">铭记发展足迹，镌刻奋斗荣光</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="hon-grid">
+      <div class="hon-card rv"><div class="hon-icon">🏅</div><div><div class="hon-lv">宁波市级荣誉</div><div class="hon-title">"争一流、创样板、谱新篇"港城文化繁荣领域先进集体</div><div class="hon-year">2024年度</div></div></div>
+      <div class="hon-card rv"><div class="hon-icon">🏅</div><div><div class="hon-lv">余姚市级荣誉</div><div class="hon-title">"余山姚水 阳明心城"品质城市建设先进集体</div><div class="hon-year">2023年度</div></div></div>
+      <div class="hon-card rv"><div class="hon-icon">🏅</div><div><div class="hon-lv">社会责任荣誉</div><div class="hon-title">旅行社会责任·携手脱贫攻坚先进集体</div><div class="hon-year">2023年度</div></div></div>
+      <div class="hon-card rv"><div class="hon-icon">🏅</div><div><div class="hon-lv">国企管理荣誉</div><div class="hon-title">国企财务管理工作先进集体</div><div class="hon-year">2020年度</div></div></div>
+      <div class="hon-card rv"><div class="hon-icon">🏅</div><div><div class="hon-lv">党建工作荣誉</div><div class="hon-title">国企党建工作先进集体</div><div class="hon-year">2020年度</div></div></div>
+      <div class="hon-card rv" style="border:1px dashed var(--border);justify-content:center;align-items:center;flex-direction:column;text-align:center;gap:6px"><div style="font-size:11px;color:var(--light);letter-spacing:0.25em;font-family:'Cormorant Garamond',serif;font-style:italic">持续奋进</div><div style="font-size:13px;color:var(--light);font-family:'Noto Serif SC',serif;font-weight:300">更多荣誉续写中……</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ VISION -->
+<section class="vision-section" id="vision">
+  <div class="vision-lines">
+    <div class="vl vl-h"></div><div class="vl vl-h"></div>
+    <div class="vl vl-v"></div><div class="vl vl-v"></div>
+  </div>
+  <div class="container">
+    <div class="rv">
+      <div class="eye" style="justify-content:center">Future Vision</div>
+      <p class="vision-q">以<em>创新</em>为帆，实干为桨<br>在文旅融合浪潮中奋楫笃行<br>让余姚文旅在新时代绽放"<em>最名邑</em>"的璀璨华章</p>
+      <p class="vision-by">— 宁波河姆渡文化旅游集团有限公司</p>
+      <div class="vision-pillars">
+        <div class="vp"><div class="vp-line"></div><div class="vp-name">文化赋能</div><div class="vp-en">Cultural Empowerment</div></div>
+        <div class="vp"><div class="vp-line"></div><div class="vp-name">旅游提质</div><div class="vp-en">Tourism Quality</div></div>
+        <div class="vp"><div class="vp-line"></div><div class="vp-name">产业升级</div><div class="vp-en">Industry Evolution</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-name">宁波河姆渡文化旅游集团有限公司</div>
+      <div class="f-en">Ningbo Hemudu Cultural Tourism Group Co., Ltd.</div>
+      <p class="f-about">余姚市政府直属国有资本投资运营公司，以全域旅游为导向，守护七千年文明根脉，推动文旅产业高质量发展。</p>
+    </div>
+    <div><div class="f-col-h">核心业务</div><ul class="f-ul"><li>酒店住宿板块</li><li>景区文旅板块</li><li>旅行社板块</li><li>混改业务板块</li><li>国有资本运营</li></ul></div>
+    <div><div class="f-col-h">旗下景区</div><ul class="f-ul"><li>四明山抗日根据地旧址群</li><li>天下玉苑景区</li><li>丹山赤水景区</li><li>四明山地质公园</li><li>鹿亭中村</li></ul></div>
+    <div><div class="f-col-h">战略布局</div><ul class="f-ul"><li>城区文化板块</li><li>姚东考古文旅</li><li>四明山生态文旅</li><li>牟山湖滨水度假</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="f-copy">© 2026 宁波河姆渡文化旅游集团有限公司 · 解码七千年文明，启航全域文旅新时代</span>
+    <span class="f-copy">余姚市政府直属国有企业</span>
+  </div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let rx=0,ry=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;cur.style.left=cx+'px';cur.style.top=cy+'px'});
+function lerpRing(){rx+=(cx-rx)*0.1;ry+=(cy-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpRing)}
+lerpRing();
+
+/* NAV */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>80));
+
+/* TABS */
+function bizSwitch(id,btn){
+  document.querySelectorAll('.biz-tab').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.biz-panel').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('bp-'+id).classList.add('on');
+}
+
+/* REVEAL */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('vis'),i*65);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.07});
+document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-scale,.tl-row').forEach(el=>io.observe(el));
+
+/* STAGGER grids */
+document.querySelectorAll('.strat-grid .strat-card,.proj-grid .p-card,.hon-grid .hon-card,.ip-grid .ip-card,.h-grid .h-card,.metric-trio .m-cell,.stat-cell,.about-tags .about-tag').forEach((el,i)=>{
+  el.style.transitionDelay=`${(i%4)*0.09}s`;
+});
+
+/* COUNTER animation */
+function countUp(el,target,suffix=''){
+  let start=0;
+  const step=target/50;
+  const t=setInterval(()=>{
+    start=Math.min(start+step,target);
+    el.textContent=Math.round(start)+(suffix||'');
+    if(start>=target)clearInterval(t);
+  },24);
+}
+const statsObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.stat-n').forEach(el=>{
+        const raw=el.textContent;
+        if(raw.includes('218'))countUp(el,218,'亿');
+        else if(raw.includes('32'))countUp(el,32);
+        else if(raw.includes('30'))countUp(el,30,'亿');
+        else if(raw.includes('5'))countUp(el,5);
+      });
+      statsObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelector('.stats-band-inner') && statsObs.observe(document.querySelector('.stats-band-inner'));
+
+/* CARD 3D TILT */
+document.querySelectorAll('.h-card,.strat-card,.p-card,.hon-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-0.5;
+    const y=(e.clientY-r.top)/r.height-0.5;
+    card.style.transform=`perspective(600px) rotateX(${-y*5}deg) rotateY(${x*5}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave',()=>card.style.transform='');
+});
+
+/* HERO orb parallax */
+const orb=document.querySelector('.hero-orb');
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY;
+  if(orb)orb.style.transform=`translateY(calc(-50% + ${s*0.3}px))`;
+});
+</script>
+</body>
+</html>
